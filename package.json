@@ -6,7 +6,9 @@
     "start": "node server.js",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "hacker-rank:start": "ng serve --host 0.0.0.0 --port 8000 --disable-host-check",
+    "hacker-rank:test": "./hackerrank.sh"
   },
   "private": true,
   "dependencies": {
@@ -18,6 +20,9 @@
     "@angular/platform-browser": "^14.2.0",
     "@angular/platform-browser-dynamic": "^14.2.0",
     "@angular/router": "^14.2.0",
+    "@ng-bootstrap/ng-bootstrap": "^13.0.0",
+    "@popperjs/core": "^2.10.2",
+    "bootstrap": "^5.2.0",
     "express": "^4.18.1",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",

@@ -1,0 +1,79 @@
+<button (click)="goBack()" class="btn"><i class="fa fa-home"></i> Home</button
+    ><br /><br /><br />
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8  "> 
+          <div class="cards" >
+            <div class="cards_item" >
+              <div class="card">
+                <div class="card_image"><img src="{{ artist.picture_medium }}"></div>
+                <div class="card_content">
+                  <a [routerLink]="['/artist/', artist.id]" >
+                    <h2 class="card_title">{{ artist.name }}</h2>
+                  </a >
+                  <p class="card_text">Number of fans : {{ artist.nb_fan | thousandSuff }}</p>
+                  <button class="btn card_btn" [routerLink]="['/artist/', artist.id]" >Read More</button>
+                </div>
+              </div>
+            </div> 
+          </div>
+
+        </div>
+  
+        <div class="col-sm-4 tracksInfo">
+          <h1 class="display-2">Top Tracks</h1>
+          <br />
+
+          <ol class="featured-list">
+            <li style="--material-color:#ff5722" *ngFor="let track of tracks">
+                <div>
+                    <span>00</span>
+                    <span class="div"></span>
+                    <span></span>
+                </div>
+                <div>
+                    <h2>Title: {{ track.title_short }}</h2>
+                    <span>Duration: {{ track.duration | minuteSeconds }} </span>
+                    <span>Version :{{ track.title_version  }} </span>
+                    <span>Rank :{{ track.rank  }} </span>
+                    <span>Has Explicit Lyrics :{{ track.explicit_lyrics  }} </span>
+                    <span>Preview Link :{{ track.rank  }} </span>
+                </div>
+                <div><span class="div"></span>
+                    <span class="material-symbols-rounded">
+                        lightbulb
+                    </span>
+                </div>
+            </li> 
+        </ol>
+ 
+ 
+        </div>
+      </div>
+      <br /><br />
+  
+      <div class="container">
+        <h1 class="display-3">Albums</h1>
+        <hr />
+        <br />
+        <div  class="row" *ngIf="albumlist">
+
+
+        <li class="cards_item" *ngFor="let album of albumlist">
+            <div class="card">
+              <div class="card_image">
+                <center><img src="{{ album.cover_medium }}"></center>
+                <img src="{{ album.cover_medium }}">
+            </div>
+              <div class="card_content">
+                 
+                  <h2 class="card_title"> {{ album.title }}</h2> 
+                <p class="card_text">Album Release Date : {{ album.release_date | date: "yyyy" }}</p> 
+              </div>
+            </div>
+          </li> 
+        </div>
+
+ 
+      </div>
+    </div>
