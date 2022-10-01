@@ -1,5 +1,12 @@
 # DVT Assessment - Deezer Angular Application
 
+
+## App usage 
+The instructions on how to run the solution is in the TASK_INSTRUCTIONS.md
+
+
+
+
 ### This is a boilerplate project for DVT Angular Assessment - Deezer Application. 
 <br/>
 
