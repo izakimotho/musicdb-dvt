@@ -11,7 +11,7 @@
                   <a [routerLink]="['/artist/', artist.id]" >
                     <h2 class="card_title">{{ artist.name }}</h2>
                   </a >
-                  <p class="card_text">Number of fans : {{ artist.nb_fan | thousandSuff }}</p>
+                  <p class="card_text">Number of fans : {{ artist.nb_fan   }}</p>
                   <button class="btn card_btn" [routerLink]="['/artist/', artist.id]" >Read More</button>
                 </div>
               </div>
@@ -23,9 +23,9 @@
         <div class="col-sm-4 tracksInfo">
           <h1 class="display-2">Top Tracks</h1>
           <br />
-
-          <ol class="featured-list">
-            <li style="--material-color:#ff5722" *ngFor="let track of tracks">
+          {{ tracks | json }}
+          <ol class="featured-list" *ngFor="let track of tracks">
+            <li  >
                 <div>
                     <span>00</span>
                     <span class="div"></span>
@@ -33,7 +33,7 @@
                 </div>
                 <div>
                     <h2>Title: {{ track.title_short }}</h2>
-                    <span>Duration: {{ track.duration | minuteSeconds }} </span>
+                    <span>Duration: {{ track.duration   }} </span>
                     <span>Version :{{ track.title_version  }} </span>
                     <span>Rank :{{ track.rank  }} </span>
                     <span>Has Explicit Lyrics :{{ track.explicit_lyrics  }} </span>
@@ -56,13 +56,12 @@
         <h1 class="display-3">Albums</h1>
         <hr />
         <br />
-        <div  class="row" *ngIf="albumlist">
+        <div  class="row" >
 
 
         <li class="cards_item" *ngFor="let album of albumlist">
             <div class="card">
-              <div class="card_image">
-                <center><img src="{{ album.cover_medium }}"></center>
+              <div class="card_image center" > 
                 <img src="{{ album.cover_medium }}">
             </div>
               <div class="card_content">

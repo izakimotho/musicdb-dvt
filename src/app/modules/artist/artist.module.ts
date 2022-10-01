@@ -11,15 +11,14 @@ import { ArtistSearchComponent } from './artist-search/artist-search.component';
 import { ArtistDetailsComponent } from './artist-details/artist-details.component';  
 import { ArtistRoutingModule } from './artist-routing.module';
 import { ApiService } from 'src/app/core/services/api.services';
-import { ThousandSuffPipe } from 'src/app/core/pipes/thousand-suff.pipe'; 
-
+ 
  
 
 @NgModule({
   declarations: [ 
     ArtistSearchComponent ,ArtistDetailsComponent,
 
-    ThousandSuffPipe,
+    //ThousandSuffPipe,
     //MinuteSecondsPipe,
   ],
   imports: [

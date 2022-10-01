@@ -43,7 +43,7 @@ export class ArtistSearchComponent implements OnInit {
   rndNumber: any = 0;
 
   searching: boolean = false;
-  search_results:  Observable<Artist[]>  | undefined;
+  search_results:  Observable<Artist[]> ={} as  Observable<Artist[]>;
   private searchTerms = new Subject<string>();
   searchText: any;
 
@@ -65,7 +65,23 @@ export class ArtistSearchComponent implements OnInit {
 
   ngOnInit(): void {
     this.rndNumber = 0;
-    // this.rndNumber=this.randomInt(2000, 3000) - 20;
+    let min: number=2000;
+    let  max: number=3000;
+    let isGreater = false;
+
+    if (min > 20) {
+      isGreater = true;
+    } else {
+      isGreater = false;
+    }
+
+    if (isGreater) {
+      this.rndNumber= Math.floor(Math.random() * (max - min + 1) + min);
+    } else {
+      this.rndNumber= null;
+    }
+
+    this.rndNumber= this.rndNumber - 20;
     this.fetch_artist();
 
     this.search_results = this.searchTerms.pipe(

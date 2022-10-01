@@ -1,4 +1,6 @@
 <div class="search_music_section">
+
+  <div class="row">
     <form>
       <div class="inner-form">
         <div class="input-field">
@@ -28,40 +30,44 @@
       />
       </div>
     </form>
-  
+    </div>
+  <div class="row">
+
   
   <!-- display on search -->
     <ul class="cards" *ngIf="searching">
-      <li class="cards_item" *ngFor="let artist of search_results">
+      <li class="cards_item" *ngFor="let artist of search_results  | async">
         <div class="card">
           <div class="card_image"><img src="{{ artist.picture_medium }}"></div>
           <div class="card_content">
             <a [routerLink]="['/artist/artist/', artist.id]" >
               <h2 class="card_title">{{ artist.name }}</h2>
             </a >
-            <p class="card_text">Number of fans : {{ artist.nb_fan | thousandSuff }}</p>
+            <p class="card_text">Number of fans : {{ artist.nb_fan  }}</p>
             <button class="btn card_btn" [routerLink]="['/artist/artist/', artist.id]" >Read More</button>
           </div>
         </div>
       </li> 
     </ul>
-  
+
    
   <!-- display on load -->
-    <ul class="cards" *ngIf="!searching">
-      <li class="cards_item" *ngFor="let artist of artists">
-        <div class="card">
-          <div class="card_image"><img src="{{ artist.picture_medium }}"></div>
-          <div class="card_content">
-            <a [routerLink]="['/artist/artist/', artist.id]" >
-              <h2 class="card_title">{{ artist.name }}</h2>
-            </a >
-            <p class="card_text">Number of fans : {{ artist.nb_fan | thousandSuff }}</p>
-            <button class="btn card_btn" [routerLink]="['/artist/artist/', artist.id]" >Read More</button>
-          </div>
+  <ul class="cards" *ngIf="!searching">
+    <li class="cards_item" *ngFor="let artist of artists">
+      <div class="card">
+        <div class="card_image"><img src="{{ artist.picture_medium }}"></div>
+        <div class="card_content">
+          <a [routerLink]="['/artist/artist/', artist.id]" >
+            <h2 class="card_title">{{ artist.name }}</h2>
+          </a >
+          <p class="card_text">Number of fans : {{ artist.nb_fan}}</p>
+          <button class="btn card_btn" [routerLink]="['/artist/artist/', artist.id]" >Read More</button>
         </div>
-      </li> 
-    </ul>
+      </div>
+    </li> 
+  </ul>
+  </div>
+  
    
   </div>
   

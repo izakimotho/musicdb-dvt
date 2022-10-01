@@ -38,6 +38,7 @@ export class ArtistDetailsComponent implements OnInit {
   // Load artist music track list
     this.track_list_service.getTrackList(this.artists_id).subscribe((results) => {
       this.tracks = results;
+      console.log(this.tracks)
     });
   // Load artist album list
     this.album_service.getAlbumlist(this.artists_id).subscribe((results) => {
